@@ -105,7 +105,15 @@ require APPPATH.'bootstrap'.EXT;
  * Execute the main request. A source of the URI can be passed, eg: $_SERVER['PATH_INFO'].
  * If no source is specified, the URI will be automatically detected.
  */
+
+try
+{
 echo Request::factory()
 	->execute()
 	->send_headers(TRUE)
 	->body();
+}
+catch (Error $e) //  php7 Throwable
+{
+    throw new ErrorException($e->getMessage(), $e->getCode(), 0, $e->getFile(), $e->getLine());
+}

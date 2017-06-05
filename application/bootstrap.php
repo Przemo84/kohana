@@ -82,7 +82,7 @@ if (isset($_SERVER['KOHANA_ENV']))
  * - boolean  expose      set the X-Powered-By header                        FALSE
  */
 Kohana::init(array(
-	'base_url'   => '/articles/',
+	'base_url'   => '/',
 ));
 
 /**
@@ -125,14 +125,37 @@ Kohana::modules(array(
  * defaults for the URI.
  */
 
+//Route::set('default', '(<controller>(/<action>(/<id>)))');
+////        ->defaults(array(
+////            'controller' => 'welcome',
+////            'action' => 'index',
+////        ));
+
+Route::set('default', '/articles(/<action>)', ['action' =>'[0-9]++' ])
+    ->defaults(array(
+        'controller' => 'articles',
+        'action' => 'show',
+    ));
+
+Route::set('default', '/articles')
+        ->defaults(array(
+            'controller' => 'articles',
+            'action' => 'index',
+        ));
+
+
+
+
+
+
+
 Route::set('default', '(<controller>(/<action>(/<id>)))');
 //        ->defaults(array(
 //            'controller' => 'welcome',
 //            'action' => 'index',
+//        ));Route::set('default', '(<controller>(/<action>(/<id>)))');
+//        ->defaults(array(
+//            'controller' => 'welcome',
+//            'action' => 'index',
 //        ));
-
-
-
-
-
 
