@@ -1,0 +1,56 @@
+version: '2'
+services:
+    web:
+        container_name: "web-$CI_PROJECT_NAME-$CI_PROJECT_NAMESPACE-$CI_BUILD_REF_NAME$COMPOSE_TESTING"
+        build: ./ci/docker-compose/apache-php
+        volumes:
+            #- $SSH_AUTH_SOCK:/ssh-agent
+            - ./:/var/www/html
+            - /home/commposer/.composer/cache/:/root/.composer/cache/
+            - ./ci/logs:/var/log/apache2/
+        environment:
+#            - VIRTUAL_PORT=8080
+            - VIRTUAL_HOST=$CI_BUILD_REF_NAME.$CI_PROJECT_NAMESPACE.$CI_PROJECT_NAME.etd24.pl
+            - SSH_AUTH_SOCK=/ssh-agent
+        networks:
+             - nginx-proxy
+        depends_on:
+            - mysql
+        links:
+            - mysql
+            - postfix
+        labels:
+            com.docker.compose.project.local.hostname: "kohana.local"
+    mysql:
+        image: mysql:5.7
+        container_name: "mysql-$CI_PROJECT_NAME-$CI_PROJECT_NAMESPACE-$CI_BUILD_REF_NAME$COMPOSE_TESTING"
+        networks:
+            - nginx-proxy
+        volumes:
+            - ./ci/.data/db:/var/lib/mysql
+        environment:
+            - MYSQL_DATABASE=docker
+            - MYSQL_ROOT_PASSWORD=root
+    postfix:
+        image: juanluisbaptiste/postfix:latest
+        container_name: "postfix-$CI_PROJECT_NAME-$CI_PROJECT_NAMESPACE-$CI_BUILD_REF_NAME$COMPOSE_TESTING"
+        networks:
+            - nginx-proxy
+#        expose:
+#           - "25"
+        environment:
+            SMTP_SERVER: smtp.etendard.pl
+            SMTP_USERNAME: support@etendard.pl
+            SMTP_PASSWORD: d24e4bGbra9v8fpf
+            SERVER_HOSTNAME: smtp.etendard.pl
+    # DB cache layer
+#    redis:
+#        image: redis:latest
+#        container_name: "node-$CI_PROJECT_NAME-$CI_PROJECT_NAMESPACE-$CI_BUILD_REF_NAME"
+#        networks:
+#            - nginx-proxy
+
+networks:
+  nginx-proxy:
+    external:
+      name: nginx-proxy

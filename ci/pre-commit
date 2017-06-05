@@ -1,0 +1,86 @@
+#!/bin/bash
+
+
+
+#<!--phpcs --config-set colors 1 && sudo phpcs --config-set show_warnings 0 -->
+#phpcs --config-set report_width auto
+
+#declare -a ERRORS_ARRAY=()
+
+
+echo "$(tput setaf 2)Git CI pre commit hook start"
+echo "$(tput setaf 2)----------------------------"
+echo "$(tput setaf 7)"
+
+TMP_EXIT_CODE=0
+PHPCPD="vendor/bin/phpcpd"
+PHPCS="vendor/bin/phpcs"
+PHPMD="vendor/bin/phpmd"
+
+
+if [ ! -x  $PHPCPD ]; then
+    echo "$(tput setaf 3)PHP Copy/Paste Detector instalation"
+    echo "$(tput setaf 7)"
+
+    composer global require sebastian/phpcpd --dev > /dev/null 2>&1
+fi
+
+if [ ! -x  $PHPCS ]; then
+    echo "$(tput setaf 3)PHP Code Sniffer instalation"
+    echo "$(tput setaf 7)"
+
+    composer global require squizlabs/php_codesniffer --dev > /dev/null 2>&1
+fi
+
+if [ ! -x  $PHPMD ]; then
+    echo "$(tput setaf 3)PHP Mess Detector instalation"
+    echo "$(tput setaf 7)"
+
+    composer global require phpmd/phpmd --dev > /dev/null 2>&1
+fi
+
+
+
+
+while read file; do
+    if [[ $file = *.php && $file != "_ide_helper.php" ]];
+      then
+
+        #
+        # PHP Code Beautifier and Fixer
+        #
+        phpcbf --standard=./ci/phpcs.xml "$file" > /dev/null 2>&1
+        git add "$file"
+
+
+        #
+        # PHP Code Sniffer
+        #
+        PHPCS_OUTPUT=$(phpcs --standard=./ci/phpcs.xml "$file")
+
+        if [[ ! -z "$PHPCS_OUTPUT" ]]; then
+            echo -n $(wc -l < "$PHPCS_OUTPUT")
+            TMP_EXIT_CODE=1
+        fi
+
+        #
+        # PHPQA
+        #
+        PHPQA_OUTPUT=$(vendor/bin/phpqa --report --tools phpcs:0,phpmd:0,phpcpd:0,phpmetrics:0 --analyzedDir $file --buildDir ci/build/stats)
+        PHPQA_CODE=$?
+
+        if [[ $PHPQA_CODE -eq 1 ]]; then
+            echo -n $(wc -l < "$PHPQA_OUTPUT")
+            TMP_EXIT_CODE=1
+        fi
+    fi
+done <<< "$(git diff --cached --name-only --diff-filter=ACM)"
+
+
+if [ $TMP_EXIT_CODE -eq 1]; then
+
+	echo "$(tput setaf 1)COŚ JEST NIE TAK, SPRAWDŹ LOGI W ci/build/stats I POPRAW BŁĘDY"
+    echo "$(tput setaf 7)"
+
+	exit 1;
+fi

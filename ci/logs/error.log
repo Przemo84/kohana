@@ -1,0 +1,119 @@
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.20.0.4. Set the 'ServerName' directive globally to suppress this message
+[Tue May 16 12:50:09.547769 2017] [mpm_prefork:notice] [pid 9] AH00163: Apache/2.4.10 (Debian) PHP/7.0.19 configured -- resuming normal operations
+[Tue May 16 12:50:09.547824 2017] [core:notice] [pid 9] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.20.0.4. Set the 'ServerName' directive globally to suppress this message
+[Wed May 17 07:35:57.719202 2017] [mpm_prefork:notice] [pid 6] AH00163: Apache/2.4.10 (Debian) PHP/7.0.19 configured -- resuming normal operations
+[Wed May 17 07:35:57.719251 2017] [core:notice] [pid 6] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.20.0.4. Set the 'ServerName' directive globally to suppress this message
+[Thu May 18 07:45:06.251211 2017] [core:warn] [pid 7] AH00098: pid file /var/run/apache2/apache2.pid overwritten -- Unclean shutdown of previous Apache run?
+[Thu May 18 07:45:06.253532 2017] [mpm_prefork:notice] [pid 7] AH00163: Apache/2.4.10 (Debian) PHP/7.0.19 configured -- resuming normal operations
+[Thu May 18 07:45:06.253567 2017] [core:notice] [pid 7] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.20.0.4. Set the 'ServerName' directive globally to suppress this message
+[Thu May 18 10:09:36.977064 2017] [core:warn] [pid 9] AH00098: pid file /var/run/apache2/apache2.pid overwritten -- Unclean shutdown of previous Apache run?
+[Thu May 18 10:09:36.979577 2017] [mpm_prefork:notice] [pid 9] AH00163: Apache/2.4.10 (Debian) PHP/7.0.19 configured -- resuming normal operations
+[Thu May 18 10:09:36.979618 2017] [core:notice] [pid 9] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.20.0.4. Set the 'ServerName' directive globally to suppress this message
+[Fri May 19 08:13:30.298848 2017] [core:warn] [pid 7] AH00098: pid file /var/run/apache2/apache2.pid overwritten -- Unclean shutdown of previous Apache run?
+[Fri May 19 08:13:30.301041 2017] [mpm_prefork:notice] [pid 7] AH00163: Apache/2.4.10 (Debian) PHP/7.0.19 configured -- resuming normal operations
+[Fri May 19 08:13:30.301067 2017] [core:notice] [pid 7] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.20.0.4. Set the 'ServerName' directive globally to suppress this message
+[Mon May 22 07:44:31.277822 2017] [mpm_prefork:notice] [pid 7] AH00163: Apache/2.4.10 (Debian) PHP/7.0.19 configured -- resuming normal operations
+[Mon May 22 07:44:31.277877 2017] [core:notice] [pid 7] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.20.0.4. Set the 'ServerName' directive globally to suppress this message
+[Tue May 23 08:49:06.276646 2017] [mpm_prefork:notice] [pid 8] AH00163: Apache/2.4.10 (Debian) PHP/7.0.19 configured -- resuming normal operations
+[Tue May 23 08:49:06.276829 2017] [core:notice] [pid 8] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.20.0.4. Set the 'ServerName' directive globally to suppress this message
+[Wed May 24 07:43:03.977547 2017] [mpm_prefork:notice] [pid 9] AH00163: Apache/2.4.10 (Debian) PHP/7.0.19 configured -- resuming normal operations
+[Wed May 24 07:43:03.977588 2017] [core:notice] [pid 9] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.20.0.4. Set the 'ServerName' directive globally to suppress this message
+[Thu May 25 07:40:25.661246 2017] [mpm_prefork:notice] [pid 9] AH00163: Apache/2.4.10 (Debian) PHP/7.0.19 configured -- resuming normal operations
+[Thu May 25 07:40:25.661296 2017] [core:notice] [pid 9] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.20.0.4. Set the 'ServerName' directive globally to suppress this message
+[Fri May 26 07:43:11.538920 2017] [core:warn] [pid 8] AH00098: pid file /var/run/apache2/apache2.pid overwritten -- Unclean shutdown of previous Apache run?
+[Fri May 26 07:43:11.541347 2017] [mpm_prefork:notice] [pid 8] AH00163: Apache/2.4.10 (Debian) PHP/7.0.19 configured -- resuming normal operations
+[Fri May 26 07:43:11.541376 2017] [core:notice] [pid 8] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.20.0.4. Set the 'ServerName' directive globally to suppress this message
+[Fri May 26 08:13:40.831786 2017] [mpm_prefork:notice] [pid 9] AH00163: Apache/2.4.10 (Debian) PHP/7.0.19 configured -- resuming normal operations
+[Fri May 26 08:13:40.831907 2017] [core:notice] [pid 9] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.20.0.4. Set the 'ServerName' directive globally to suppress this message
+[Fri May 26 11:47:52.816928 2017] [mpm_prefork:notice] [pid 8] AH00163: Apache/2.4.10 (Debian) PHP/7.0.19 configured -- resuming normal operations
+[Fri May 26 11:47:52.817092 2017] [core:notice] [pid 8] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.20.0.4. Set the 'ServerName' directive globally to suppress this message
+[Mon May 29 07:39:06.097464 2017] [mpm_prefork:notice] [pid 6] AH00163: Apache/2.4.10 (Debian) PHP/7.0.19 configured -- resuming normal operations
+[Mon May 29 07:39:06.097548 2017] [core:notice] [pid 6] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.20.0.4. Set the 'ServerName' directive globally to suppress this message
+[Tue May 30 08:02:07.255404 2017] [mpm_prefork:notice] [pid 7] AH00163: Apache/2.4.10 (Debian) PHP/7.0.19 configured -- resuming normal operations
+[Tue May 30 08:02:07.255460 2017] [core:notice] [pid 7] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.20.0.4. Set the 'ServerName' directive globally to suppress this message
+[Wed May 31 07:19:21.208417 2017] [mpm_prefork:notice] [pid 7] AH00163: Apache/2.4.10 (Debian) PHP/7.0.19 configured -- resuming normal operations
+[Wed May 31 07:19:21.208499 2017] [core:notice] [pid 7] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.20.0.4. Set the 'ServerName' directive globally to suppress this message
+[Thu Jun 01 07:26:39.373861 2017] [mpm_prefork:notice] [pid 6] AH00163: Apache/2.4.10 (Debian) PHP/7.0.19 configured -- resuming normal operations
+[Thu Jun 01 07:26:39.375271 2017] [core:notice] [pid 6] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00112: Warning: DocumentRoot [/var/www/html/public/] does not exist
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.20.0.4. Set the 'ServerName' directive globally to suppress this message
+[Fri Jun 02 08:44:13.368388 2017] [mpm_prefork:notice] [pid 7] AH00163: Apache/2.4.10 (Debian) PHP/7.0.19 configured -- resuming normal operations
+[Fri Jun 02 08:44:13.368430 2017] [core:notice] [pid 7] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Fri Jun 02 08:44:50.047936 2017] [core:crit] [pid 8] (13)Permission denied: [client 172.20.0.1:35178] AH00529: /var/www/html/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable and that '/var/www/html/' is executable
+[Fri Jun 02 08:44:52.619760 2017] [core:crit] [pid 8] (13)Permission denied: [client 172.20.0.1:35178] AH00529: /var/www/html/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable and that '/var/www/html/' is executable
+[Fri Jun 02 08:45:02.522890 2017] [core:crit] [pid 9] (13)Permission denied: [client 172.20.0.1:35180] AH00529: /var/www/html/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable and that '/var/www/html/' is executable
+[Fri Jun 02 08:45:14.340172 2017] [core:crit] [pid 10] (13)Permission denied: [client 172.20.0.1:35182] AH00529: /var/www/html/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable and that '/var/www/html/' is executable
+[Fri Jun 02 08:46:37.563445 2017] [core:crit] [pid 11] (13)Permission denied: [client 172.20.0.1:35184] AH00529: /var/www/html/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable and that '/var/www/html/' is executable
+[Fri Jun 02 08:46:38.993574 2017] [core:crit] [pid 11] (13)Permission denied: [client 172.20.0.1:35184] AH00529: /var/www/html/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable and that '/var/www/html/' is executable
+[Fri Jun 02 08:46:39.978584 2017] [core:crit] [pid 11] (13)Permission denied: [client 172.20.0.1:35184] AH00529: /var/www/html/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable and that '/var/www/html/' is executable
+[Fri Jun 02 08:47:26.942304 2017] [core:crit] [pid 12] (13)Permission denied: [client 172.20.0.1:35186] AH00529: /var/www/html/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable and that '/var/www/html/' is executable
+[Fri Jun 02 08:47:30.341685 2017] [core:crit] [pid 12] (13)Permission denied: [client 172.20.0.1:35186] AH00529: /var/www/html/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable and that '/var/www/html/' is executable
+[Fri Jun 02 08:47:38.597062 2017] [core:crit] [pid 13] (13)Permission denied: [client 172.20.0.1:35188] AH00529: /var/www/html/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable and that '/var/www/html/' is executable
+[Fri Jun 02 08:47:41.647606 2017] [core:crit] [pid 13] (13)Permission denied: [client 172.20.0.1:35188] AH00529: /var/www/html/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable and that '/var/www/html/' is executable
+[Fri Jun 02 08:49:45.308520 2017] [core:crit] [pid 8] (13)Permission denied: [client 172.20.0.1:35194] AH00529: /var/www/html/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable and that '/var/www/html/' is executable
+[Fri Jun 02 08:49:57.218172 2017] [core:crit] [pid 9] (13)Permission denied: [client 172.20.0.1:35196] AH00529: /var/www/html/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable and that '/var/www/html/' is executable
+[Fri Jun 02 08:51:01.227612 2017] [core:crit] [pid 10] (13)Permission denied: [client 172.20.0.1:35218] AH00529: /var/www/html/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable and that '/var/www/html/' is executable
+[Fri Jun 02 08:51:07.225207 2017] [core:crit] [pid 11] (13)Permission denied: [client 172.20.0.1:35220] AH00529: /var/www/html/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable and that '/var/www/html/' is executable
+AH00112: Warning: DocumentRoot [/var/www/html/public/] does not exist
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.20.0.4. Set the 'ServerName' directive globally to suppress this message
+[Fri Jun 02 09:11:30.919431 2017] [mpm_prefork:notice] [pid 6] AH00163: Apache/2.4.10 (Debian) PHP/7.0.19 configured -- resuming normal operations
+[Fri Jun 02 09:11:30.919481 2017] [core:notice] [pid 6] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00112: Warning: DocumentRoot [/var/www/html/public/] does not exist
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.20.0.4. Set the 'ServerName' directive globally to suppress this message
+[Fri Jun 02 09:25:19.122630 2017] [mpm_prefork:notice] [pid 6] AH00163: Apache/2.4.10 (Debian) PHP/7.0.19 configured -- resuming normal operations
+[Fri Jun 02 09:25:19.122668 2017] [core:notice] [pid 6] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Fri Jun 02 09:29:03.221307 2017] [core:error] [pid 9] [client 172.20.0.1:35402] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:29:08.022049 2017] [core:error] [pid 10] [client 172.20.0.1:35404] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:29:38.422319 2017] [core:error] [pid 11] [client 172.20.0.1:35412] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:31:46.833080 2017] [core:error] [pid 12] [client 172.20.0.1:35414] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:33:04.347996 2017] [core:error] [pid 7] [client 172.20.0.1:35428] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:33:06.174080 2017] [core:error] [pid 8] [client 172.20.0.1:35430] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:34:31.850388 2017] [core:error] [pid 9] [client 172.20.0.1:35446] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:34:38.126683 2017] [core:error] [pid 10] [client 172.20.0.1:35448] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:37:29.007440 2017] [core:error] [pid 11] [client 172.20.0.1:35450] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:43:34.745792 2017] [core:error] [pid 12] [client 172.20.0.1:35474] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:44:38.786114 2017] [core:error] [pid 7] [client 172.20.0.1:35476] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:44:42.664777 2017] [core:error] [pid 8] [client 172.20.0.1:35478] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:45:25.249714 2017] [core:error] [pid 9] [client 172.20.0.1:35480] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:45:25.931227 2017] [core:error] [pid 10] [client 172.20.0.1:35482] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:49:03.597005 2017] [core:error] [pid 11] [client 172.20.0.1:35492] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:49:04.938153 2017] [core:error] [pid 12] [client 172.20.0.1:35494] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:49:25.653636 2017] [core:error] [pid 9] [client 172.20.0.1:35500] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:49:50.780042 2017] [core:error] [pid 11] [client 172.20.0.1:35504] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:50:32.393812 2017] [core:error] [pid 7] [client 172.20.0.1:35508] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:50:38.414722 2017] [core:error] [pid 8] [client 172.20.0.1:35510] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:51:56.868866 2017] [core:error] [pid 10] [client 172.20.0.1:35530] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:53:53.520059 2017] [core:error] [pid 11] [client 172.20.0.1:35544] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:54:46.615604 2017] [core:error] [pid 12] [client 172.20.0.1:35556] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:54:47.831421 2017] [core:error] [pid 7] [client 172.20.0.1:35558] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:54:50.737139 2017] [core:error] [pid 8] [client 172.20.0.1:35560] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:59:52.812174 2017] [core:error] [pid 9] [client 172.20.0.1:35604] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 09:59:53.778790 2017] [core:error] [pid 10] [client 172.20.0.1:35606] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.20.0.4. Set the 'ServerName' directive globally to suppress this message
+[Fri Jun 02 11:06:40.943723 2017] [mpm_prefork:notice] [pid 7] AH00163: Apache/2.4.10 (Debian) PHP/7.0.19 configured -- resuming normal operations
+[Fri Jun 02 11:06:40.943778 2017] [core:notice] [pid 7] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.20.0.4. Set the 'ServerName' directive globally to suppress this message
+[Fri Jun 02 12:14:48.906908 2017] [mpm_prefork:notice] [pid 6] AH00163: Apache/2.4.10 (Debian) PHP/7.0.19 configured -- resuming normal operations
+[Fri Jun 02 12:14:48.907054 2017] [core:notice] [pid 6] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Fri Jun 02 14:09:51.201942 2017] [core:error] [pid 7] [client 172.20.0.1:37412] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 14:09:53.023379 2017] [core:error] [pid 9] [client 172.20.0.1:37414] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 14:10:04.239007 2017] [core:error] [pid 10] [client 172.20.0.1:37416] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Fri Jun 02 14:10:07.005041 2017] [core:error] [pid 11] [client 172.20.0.1:37418] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.20.0.4. Set the 'ServerName' directive globally to suppress this message
+[Fri Jun 02 16:07:33.963929 2017] [mpm_prefork:notice] [pid 6] AH00163: Apache/2.4.10 (Debian) PHP/7.0.19 configured -- resuming normal operations
+[Fri Jun 02 16:07:33.963964 2017] [core:notice] [pid 6] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
