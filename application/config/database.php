@@ -19,7 +19,7 @@ return [
             'type' => 'PDO',
             'connection' =>
                 [
-                    'dsn' => 'mysql:dbname=lara;host=mysql',
+                    'dsn' => 'mysql:dbname=kohana;host=mysql',
                     'username' => 'root',
                     'password' => 'root',
                     'persistent' => FALSE,

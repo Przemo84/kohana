@@ -125,37 +125,13 @@ Kohana::modules(array(
  * defaults for the URI.
  */
 
-//Route::set('default', '(<controller>(/<action>(/<id>)))');
-////        ->defaults(array(
-////            'controller' => 'welcome',
-////            'action' => 'index',
-////        ));
-
-Route::set('default', '/articles(/<action>)', ['action' =>'[0-9]++' ])
-    ->defaults(array(
-        'controller' => 'articles',
-        'action' => 'show',
-    ));
-
-Route::set('default', '/articles')
+Route::set('default', '(<controller>(/<action>(/<id>)))')
         ->defaults(array(
-            'controller' => 'articles',
+            'controller' => 'welcome',
             'action' => 'index',
         ));
 
 
 
 
-
-
-
-Route::set('default', '(<controller>(/<action>(/<id>)))');
-//        ->defaults(array(
-//            'controller' => 'welcome',
-//            'action' => 'index',
-//        ));Route::set('default', '(<controller>(/<action>(/<id>)))');
-//        ->defaults(array(
-//            'controller' => 'welcome',
-//            'action' => 'index',
-//        ));
 

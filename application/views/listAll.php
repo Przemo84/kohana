@@ -5,9 +5,15 @@
 <body>
 <div class="container" style="width: 1200px">
     <header style="font-size: 30px"> List of articles</header>
-    <div class="nav">
+    <div class="nav" style="float: left">
         <p>Total articles found:</p>
     </div>
+    <div style="float: left;margin-left: 200px">
+        <form action="/index.php/articles/create">
+            <button>Create new Article</button>
+        </form>
+    </div>
+    <div style="clear: both"></div>
     <hr>
     <div class="content">
         <table>
@@ -31,21 +37,27 @@
                         <?php echo $article['content'] ?>
                     </td>
                     <td>
-                        <a href="articles/<?php echo $article['id'] ?>">READ</a>
+                        <a href="articles/read/<?php echo $article['id'] ?>">READ</a>
                     </td>
                     <td>
-                    <a href="">EDIT</a>
+                    <a href="articles/edit/<?php echo $article['id'] ?>">EDIT</a>
                     </td>
                     <td>
-                    <form>
+                    <form action="/index.php/articles/delete/<?php echo $article['id'] ?>" onload="parent" target="_top">
+                        <!-- poprawić na dynamiczne przekierowanie  -->
                         <button>DELETE</button>
                     </form>
                     </td>
                 </tr>
             <?php endforeach ?>
             </tbody>
-
         </table>
+        <hr/>
+        <br/>
+        <form>
+            <button>Create a Comment</button>
+        </form>
+
 
     </div>
 </div>

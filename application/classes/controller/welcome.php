@@ -7,9 +7,5 @@ class Controller_Welcome extends Controller {
 		$this->response->body('hello, world!');
 	}
 
-//    public function action_list()
-//    {
-//        $this->response->body('hello, world!');
-//    }
 
 } // End Welcome
