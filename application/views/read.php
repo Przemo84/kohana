@@ -12,9 +12,8 @@
             <button formaction="/index.php/articles">Back to List</button>
         </form>
     </div>
-
-    <hr>
     <div class="content">
+        <hr>
         <table>
             <thead>
             <tr>
@@ -24,22 +23,49 @@
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($result as $article): ?>
-                <tr>
-                    <td>
-                        <?php echo $article['id'] ?>
-                    </td>
-                    <td>
-                        <?php echo $article['title'] ?>
-                    </td>
-                    <td>
-                        <?php echo $article['content'] ?>
-                    </td>
-                </tr>
-            <?php endforeach ?>
+            <tr>
+                <td>
+                    <?php echo $result->id ?>
+                </td>
+                <td>
+                    <?php echo $result->title ?>
+                </td>
+                <td>
+                    <?php echo $result->content ?>
+                </td>
+            </tr>
             </tbody>
         </table>
         <hr/>
+        <h3>Comment this article</h3>
+        <form method="POST" action="/index.php/articles/storeComment">
+            <label>Username
+                <input type="text" name="username" required>
+            </label>
+            <br/>
+            <label>Your Comment
+                <input type="text" name="comment" required>
+            </label>
+            <br/>
+            <input type="submit" value="Comment!">
+        </form>
+        <div>
+            <hr/>
+            <table>
+                <tbody>
+                <?php foreach ($comments as $comment): ?>
+                    <tr>
+                        <td><b><?php echo $comment['username'] ?></b></td>
+                    </tr>
+                    <tr>
+                        <td><?php echo $comment['comment'] ?></td>
+                    </tr>
+                    <tr></tr><tr></tr><tr></tr><tr></tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+
     </div>
 </div>
 </body>

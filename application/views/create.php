@@ -11,11 +11,11 @@
     </div>
     <hr>
     <div class="content">
-            <form method="POST" action="creating">
+            <form method="POST" action="storeNewArticle">
                     <label>Title</label>
-                        <input type="text" name="title"">
+                        <input type="text" name="title" required>
                     <label>Content</label>
-                        <input type="text" name="content">
+                        <input type="text" name="content" required>
                     <br/>
                     <input type="submit" value="Save">
             </form>

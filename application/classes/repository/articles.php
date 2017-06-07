@@ -4,43 +4,41 @@ class Repository_Articles
 {
     public function listAll()
     {
-        $results = DB::query(Database::SELECT, 'SELECT * FROM articles')
-            ->execute();
-        return $results;
+        $results = Jelly::query('article')->select();
+        $count = $results->count();
+
+        return [$results, $count];
     }
 
     public function show($id)
     {
-        $result = DB::select()
-            ->from('articles')
-            ->where('id', '=', $id)
-            ->execute();
+        $result = Jelly::query('article', $id)
+            ->select();
+
         return $result;
     }
 
     public function delete($id)
     {
-        DB::delete('articles')
-            ->where('id', '=', $id)
-            ->execute();
+        Jelly::query('article', $id)
+            ->select()
+            ->delete();
     }
 
     public function update($id, $title, $content)
     {
-        DB::update('articles')
-            ->set([
-                'title' => $title,
-                'content' => $content,
-            ])
-            ->where('id', '=', $id)
-            ->execute();
+        $article = Jelly::query('article', $id)->select();
+        $article->title = $title;
+        $article->content = $content;
+        $article->save();
     }
 
     public function create($title, $content)
     {
-        DB::insert('articles', ['title', 'content'])
-            ->values([$title, $content])
-            ->execute();
+        Jelly::factory('article')->set([
+            'title' => $title,
+            'content' => $content
+        ])->save();
     }
 
 }
