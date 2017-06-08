@@ -14,8 +14,8 @@ class Controller_Articles extends Controller
 
     public function action_index()
     {
-        $articleRepository = new Repository_Articles();
-        $count = $articleRepository->listAll($this->request->query('filter'))[1];
+        $articleModel = new Model_Article();
+        $count = $articleModel->listAll($this->request->query('filter'))[1];
 
         $pagination = Pagination::factory([
             'total_items' => $count,
@@ -44,11 +44,11 @@ class Controller_Articles extends Controller
 
     public function action_read()
     {
-        $articleRepository = new Repository_Articles();
+        $articleRepository = new Model_Article();
         $article = $articleRepository->show($this->id);
 
-        $commentRepository = new Repository_Comments();
-        $comments = $commentRepository->listComments($this->id);
+        $commentModel = new Model_Comment();
+        $comments = $commentModel->listComments($this->id);
 
         $view = View::factory('read')
             ->set([
@@ -61,15 +61,15 @@ class Controller_Articles extends Controller
 
     public function action_delete()
     {
-        $articleRepository = new Repository_Articles();
-        $articleRepository->delete($this->id);
+        $articleRepository = new Model_Article();
+        $articleRepository->erase($this->id);
 
         $this->request->redirect('index.php/articles');
     }
 
     public function action_edit()
     {
-        $articleRepository = new Repository_Articles();
+        $articleRepository = new Model_Article();
         $article = $articleRepository->show($this->id);
 
         $view = View::factory('edit')
@@ -80,13 +80,7 @@ class Controller_Articles extends Controller
 
     public function action_storeEditedArticle()
     {
-
-//        $validation = Validation::factory($this->request->post());
-//        $validation->rule('title', 'notEmpty')
-//            ->rule('title', 'regex', [':value', '/^[a-zA-Z]++$/']);
-
-
-        $articleRepository = new Repository_Articles();
+        $articleRepository = new Model_Article();
 
         $articleRepository->update($this->id, $_POST['title'], $_POST['content']);
 
@@ -95,24 +89,48 @@ class Controller_Articles extends Controller
 
     public function action_createNewArticle()
     {
+        $modelArticle = Model::factory('article');
+
         $view = View::factory('create')
-            ->set([]);
+            ->bind('validator', $validator)
+            ->bind('errors', $errors);
+//            ->set([
+//                'validator' => $validator,
+//                'errors' => $errors
+//            ]);
+
+        if (Request::POST) {
+            //added the arr::extract() method here to pull the keys that we want
+            //to stop the user from adding their own post data
+            $validator = $modelArticle->validate_article(arr::extract($_POST, array('title', 'content')));
+            if ($validator->check()) {
+                //validation passed, add to the db
+                $modelArticle->create($validator);
+                //clearing so it won't populate the form
+                $validator = null;
+            } else {
+                //validation failed, get errors
+                $errors = $validator->errors('errors');
+            }
+        }
+
+
 
         $this->response->body($view);
     }
 
     public function action_storeNewArticle()
     {
-        $articleRepository = new Repository_Articles();
+        $articleRepository = new Model_Article();
 
-        $articleRepository->create($this->request->post('title'),  $this->request->post('content')    );
+        $articleRepository->create($this->request->post('title'), $this->request->post('content'));
 
         $this->request->redirect('index.php/articles');
     }
 
     public function action_storeNewComment()
     {
-        $commentRepository = new Repository_Comments();
+        $commentRepository = new Model_Comment();
 
         $commentRepository->createComment($this->id, $this->request->post('username'), $this->request->post('comment'));
 
