@@ -25,20 +25,20 @@
             <tbody>
             <tr>
                 <td>
-                    <?php echo $result->id ?>
+                    <?php echo $article->id ?>
                 </td>
                 <td>
-                    <?php echo $result->title ?>
+                    <?php echo $article->title ?>
                 </td>
                 <td>
-                    <?php echo $result->content ?>
+                    <?php echo $article->content ?>
                 </td>
             </tr>
             </tbody>
         </table>
         <hr/>
         <h3>Comment this article</h3>
-        <form method="POST" action="/index.php/articles/storeComment">
+        <form method="POST" action="/index.php/articles/storeNewComment/<?php echo $article->id ?>">
             <label>Username
                 <input type="text" name="username" required>
             </label>
@@ -55,7 +55,7 @@
                 <tbody>
                 <?php foreach ($comments as $comment): ?>
                     <tr>
-                        <td><b><?php echo $comment['username'] ?></b></td>
+                        <td><b><?php echo $comment['username'].'      '.$comment['created_on'] ?></b></td>
                     </tr>
                     <tr>
                         <td><?php echo $comment['comment'] ?></td>

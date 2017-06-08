@@ -11,7 +11,7 @@
     </div>
     <hr>
     <div class="content">
-            <form method="post" action="/index.php/articles/store/<?php echo $result->id ?>">
+            <form method="post" action="/index.php/articles/storeEditedArticle/<?php echo $result->id ?>">
                     <label>Title</label>
                         <input type="text" name="title" value="<?php echo $result->title ?>" required>
                     <label>Content</label>

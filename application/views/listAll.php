@@ -8,9 +8,30 @@
     <div class="nav" style="float: left">
         <p>Total articles found: <?php echo $counts  ?></p>
     </div>
-    <div style="float: left;margin-left: 200px">
-        <form action="/index.php/articles/create">
-            <button>Create new Article</button>
+    <div style="float: left ; margin-left: 100px">
+        New Article?
+        <?php echo Form::open('/articles/createNewArticle'); ?>
+        <?php echo Form::button('Create','Create new Article'); ?>
+        <?php echo Form::close(); ?>
+
+    </div>
+    <div style="float:left ; margin-left: 100px">
+        Filter:
+        <form action="">
+            <input type="text" name="filter">
+        </form>
+    </div>
+    <div style="float: left;margin-left: 100px">
+        Select number of articles per page:
+        <form id="perPageForm" method="GET">
+            <select id="selectPerPage" name="limit">
+                <option></option>
+                <option value="3">3</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="25">25</option>
+            </select>
         </form>
     </div>
     <div style="clear: both"></div>
@@ -37,14 +58,13 @@
                         <?php echo $article->content ?>
                     </td>
                     <td>
-                        <a href="articles/read/<?php echo $article->id ?>">READ</a>
+                        <a href="/index.php/articles/read/<?php echo $article->id ?>">READ</a>
                     </td>
                     <td>
-                    <a href="articles/edit/<?php echo $article->id ?>">EDIT</a>
+                    <a href="/index.php/articles/edit/<?php echo $article->id ?>">EDIT</a>
                     </td>
                     <td>
                     <form action="/index.php/articles/delete/<?php echo $article->id ?>">
-                        <!-- poprawić na dynamiczne przekierowanie  -->
                         <button>DELETE</button>
                     </form>
                     </td>
@@ -53,7 +73,21 @@
             </tbody>
         </table>
         <hr/>
+        <div>
+            <?php echo $pagination ?>
+        </div>
     </div>
 </div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#selectPerPage").on("change", function () {
+            $("#perPageForm").submit();
+        })
+    });
+
+</script>
+
 </body>
 </html>

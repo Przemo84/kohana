@@ -8,22 +8,35 @@ class Controller_Articles extends Controller
     public function before()
     {
         $this->id = $this->request->param('id');
+        $this->limit = $this->request->query('limit');
+        $this->filter = $this->request->query('filter');
     }
 
     public function action_index()
     {
         $articleRepository = new Repository_Articles();
-        $articles = $articleRepository->listAll()[0];
-        $count = $articleRepository->listAll()[1];
+        $count = $articleRepository->listAll($this->request->query('filter'))[1];
 
-//        $pagination = Pagination::factory([
-//            'total_items' => $count,
-//            'items_per_page' => 10
-//        ]);
+        $pagination = Pagination::factory([
+            'total_items' => $count,
+            'items_per_page' => $this->limit == 0 ? 10 : $this->limit
+        ])
+            ->route_params([
+                'directory' => Request::current()->directory(),
+                'controller' => Request::current()->controller(),
+                'action' => Request::current()->action(),
+            ]);
+
+        $articles = Jelly::query('article')
+            ->limit($pagination->items_per_page)
+            ->offset($pagination->offset)
+            ->where('title', 'LIKE', "%$this->filter%")
+            ->select();
 
         $view = View::factory('listAll')
             ->set(['articles' => $articles,
                 'counts' => $count,
+                'pagination' => $pagination
             ]);
 
         $this->response->body($view);
@@ -39,7 +52,7 @@ class Controller_Articles extends Controller
 
         $view = View::factory('read')
             ->set([
-                'result' => $article,
+                'article' => $article,
                 'comments' => $comments
             ]);
 
@@ -65,12 +78,13 @@ class Controller_Articles extends Controller
         $this->response->body($view);
     }
 
-    public function action_store()
+    public function action_storeEditedArticle()
     {
-        /** @var TODO $validation */
+
 //        $validation = Validation::factory($this->request->post());
-//        $validation->rule('title', 'notEmpty',[':value','/^[a-z]/']);
-//            ->rule('content', 'notEmpty')
+//        $validation->rule('title', 'notEmpty')
+//            ->rule('title', 'regex', [':value', '/^[a-zA-Z]++$/']);
+
 
         $articleRepository = new Repository_Articles();
 
@@ -79,7 +93,7 @@ class Controller_Articles extends Controller
         $this->request->redirect('index.php/articles');
     }
 
-    public function action_create()
+    public function action_createNewArticle()
     {
         $view = View::factory('create')
             ->set([]);
@@ -91,20 +105,18 @@ class Controller_Articles extends Controller
     {
         $articleRepository = new Repository_Articles();
 
-        $articleRepository->create($_POST['title'], $_POST['content']);
+        $articleRepository->create($this->request->post('title'),  $this->request->post('content')    );
 
         $this->request->redirect('index.php/articles');
     }
 
-    public function action_storeComment()
+    public function action_storeNewComment()
     {
         $commentRepository = new Repository_Comments();
 
-        /** TODO posłać id DYNAMICZNIE!!!! */
-        $commentRepository->createComment(38, $_POST['username'], $_POST['comment']);
+        $commentRepository->createComment($this->id, $this->request->post('username'), $this->request->post('comment'));
 
-        /** TODO posłać id DYNAMICZNIE!!!! */
-        $this->request->redirect('index.php/articles/read/38');
+        $this->request->redirect("index.php/articles/read/$this->id");
     }
 
 }

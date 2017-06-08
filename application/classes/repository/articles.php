@@ -2,12 +2,21 @@
 
 class Repository_Articles
 {
-    public function listAll()
+    public function listAll($filter)
     {
-        $results = Jelly::query('article')->select();
+        if($filter==null) {
+            $results = Jelly::query('article')->select();
+            $count = $results->count();
+
+            return [$results, $count];
+        }
+        $results = Jelly::query('article')
+            ->where('title','LIKE',"%$filter%")
+            ->select();
         $count = $results->count();
 
         return [$results, $count];
+
     }
 
     public function show($id)
