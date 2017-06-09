@@ -24,7 +24,7 @@ class Model_Article extends Jelly_Model
     }
 
 
-    public function listAll($filter)
+    public function listAll($filter = null )
     {
         if ($filter == null) {
             $results = Jelly::query('article')->select();

@@ -38,7 +38,7 @@
     <hr>
     <div class="content">
         <table id="myTable" class="tablesorter" >
-            <thead cancelSelection="true">
+            <thead>
             <tr>
                 <th><b>ID</b></th>
                 <th><b>TITLE</b></th>
