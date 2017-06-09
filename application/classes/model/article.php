@@ -23,6 +23,7 @@ class Model_Article extends Jelly_Model
         ]);
     }
 
+
     public function listAll($filter)
     {
         if ($filter == null) {
@@ -37,8 +38,8 @@ class Model_Article extends Jelly_Model
         $count = $results->count();
 
         return [$results, $count];
-
     }
+
 
     public function show($id)
     {
@@ -48,12 +49,14 @@ class Model_Article extends Jelly_Model
         return $result;
     }
 
+
     public function erase($id)
     {
         Jelly::query('article', $id)
             ->select()
             ->delete();
     }
+
 
     public function update($id, $title, $content)
     {
@@ -63,6 +66,7 @@ class Model_Article extends Jelly_Model
         $article->save();
     }
 
+
     public function create($title, $content)
     {
         Jelly::factory('article')->set([
@@ -71,14 +75,13 @@ class Model_Article extends Jelly_Model
         ])->save();
     }
 
-    public function validate_article($arr)
+
+    public function validateArticle($arr)
     {
         return $validation = Validation::factory($arr)
             ->rule('title', 'not_empty')
-            ->rule('title', 'regex', [':value', '/^[a-zA-Z]++$/'])
+            ->rule('title', 'regex', [':value', '/^[a-zA-Z0-9\s]+$/'])
             ->rule('content', 'not_empty')
-            ->rule('content', 'regex', [':value', '/^[a-zA-Z]++$/']);
+            ->rule('content', 'regex', [':value', '/^[a-zA-Z0-9\s]+$/']);
     }
-
-
 }

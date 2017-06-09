@@ -37,12 +37,12 @@
     <div style="clear: both"></div>
     <hr>
     <div class="content">
-        <table>
-            <thead>
+        <table id="myTable" class="tablesorter" >
+            <thead cancelSelection="true">
             <tr>
-                <td><b>ID</b></td>
-                <td><b>TITLE</b></td>
-                <td><b>CONTENT</b></td>
+                <th><b>ID</b></th>
+                <th><b>TITLE</b></th>
+                <th><b>CONTENT</b></th>
             </tr>
             </thead>
             <tbody>
@@ -51,7 +51,7 @@
                     <td>
                         <?php echo $article->id ?>
                     </td>
-                    <td>
+                    <td id="titleField">
                         <?php echo $article->title ?>
                     </td>
                     <td>
@@ -79,14 +79,24 @@
     </div>
 </div>
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="/application/js/jquery.tablesorter.min.js"></script>
 <script>
     $(document).ready(function () {
         $("#selectPerPage").on("change", function () {
             $("#perPageForm").submit();
         })
     });
-
+</script>
+<script>
+    $(document).ready(function()
+        {
+            $("#myTable").tablesorter();
+        }
+    );
+</script>
+<script>
+    $("th").css('cursor', 'pointer');
 </script>
 
 </body>

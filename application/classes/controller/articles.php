@@ -44,86 +44,107 @@ class Controller_Articles extends Controller
 
     public function action_read()
     {
-        $articleRepository = new Model_Article();
-        $article = $articleRepository->show($this->id);
+        $articleModel = new Model_Article();
+        $article = $articleModel->show($this->id);
 
         $commentModel = new Model_Comment();
         $comments = $commentModel->listComments($this->id);
 
+        if (Request::POST) {
+            $validator = $commentModel->validateComment(arr::extract($_POST, ['username', 'comment']));
+
+            if ($validator->check()) {
+                $commentModel->createComment($this->id, $validator['username'], $validator['comment']);
+                $validator = null;
+                $this->request->redirect("index.php/articles/read/$this->id");
+            } else {
+                $errors = $validator->errors('errors');
+            }
+        }
+
         $view = View::factory('read')
-            ->set([
-                'article' => $article,
-                'comments' => $comments
-            ]);
+            ->bind('article', $article)
+            ->bind('comments', $comments)
+            ->bind('validator', $validator)
+            ->bind('errors', $errors);
 
         $this->response->body($view);
     }
 
     public function action_delete()
     {
-        $articleRepository = new Model_Article();
-        $articleRepository->erase($this->id);
+        $articleModel = new Model_Article();
+        $articleModel->erase($this->id);
 
         $this->request->redirect('index.php/articles');
     }
 
     public function action_edit()
     {
-        $articleRepository = new Model_Article();
-        $article = $articleRepository->show($this->id);
+        $articleModel = new Model_Article();
+        $article = $articleModel->show($this->id);
+
+        if (Request::POST) {
+            $validator = $articleModel->validateArticle(arr::extract($_POST, ['title', 'content']));
+
+            if ($validator->check()) {
+                $articleModel->update($this->id, $validator['title'], $validator['content']);
+                $validator = null;
+                $this->request->redirect('index.php/articles');
+
+            } else {
+                $errors = $validator->errors('errors');
+            }
+        }
 
         $view = View::factory('edit')
-            ->set(['result' => $article]);
+            ->bind('result', $article)
+            ->bind('errors', $errors)
+            ->bind('validator', $validator);
 
         $this->response->body($view);
     }
 
     public function action_storeEditedArticle()
     {
-        $articleRepository = new Model_Article();
+        $articleModel = new Model_Article();
 
-        $articleRepository->update($this->id, $_POST['title'], $_POST['content']);
+        $articleModel->update($this->id, $_POST['title'], $_POST['content']);
 
         $this->request->redirect('index.php/articles');
     }
 
     public function action_createNewArticle()
     {
-        $modelArticle = Model::factory('article');
-
-        $view = View::factory('create')
-            ->bind('validator', $validator)
-            ->bind('errors', $errors);
-//            ->set([
-//                'validator' => $validator,
-//                'errors' => $errors
-//            ]);
+        $articleModel = new Model_Article();
 
         if (Request::POST) {
-            //added the arr::extract() method here to pull the keys that we want
-            //to stop the user from adding their own post data
-            $validator = $modelArticle->validate_article(arr::extract($_POST, array('title', 'content')));
+            $validator = $articleModel->validateArticle(arr::extract($_POST, ['title', 'content']));
+
             if ($validator->check()) {
-                //validation passed, add to the db
-                $modelArticle->create($validator);
-                //clearing so it won't populate the form
+
+                $articleModel->create($validator['title'], $validator['content']);
+
                 $validator = null;
+
+                $this->request->redirect('index.php/articles');
             } else {
-                //validation failed, get errors
                 $errors = $validator->errors('errors');
             }
         }
 
-
+        $view = View::factory('create')
+            ->bind('validator', $validator)
+            ->bind('errors', $errors);
 
         $this->response->body($view);
     }
 
     public function action_storeNewArticle()
     {
-        $articleRepository = new Model_Article();
+        $articleModel = new Model_Article();
 
-        $articleRepository->create($this->request->post('title'), $this->request->post('content'));
+        $articleModel->create($this->request->post('title'), $this->request->post('content'));
 
         $this->request->redirect('index.php/articles');
     }

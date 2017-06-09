@@ -11,10 +11,9 @@
     </div>
     <hr>
     <?php if (isset($errors)): ?>
-        <p>Errors:</p>
         <ul>
             <?php foreach ($errors as $error): ?>
-                <li><?php echo $error ?></li>
+                <li style="color: darkred"><?php echo $error ?></li>
             <?php endforeach ?>
         </ul>
     <?php endif ?>
@@ -26,16 +25,11 @@
         <?php echo Form::input('content'. $validator['content'])   ?>
         <?php echo Form::submit(null, 'Save')   ?>
         <?php echo Form::close()   ?>
-
-<!--            <form method="POST" action="storeNewArticle">-->
-<!--                    <label>Title</label>-->
-<!--                        <input type="text" name="title" required>-->
-<!--                    <label>Content</label>-->
-<!--                        <input type="text" name="content" required>-->
-<!--                    <br/>-->
-<!--                    <input type="submit" value="Save">-->
-<!--            </form>-->
         <hr/>
+        <form action="/index.php/articles">
+            <button >Back to List</button>
+        </form>
+    </div>
     </div>
 </div>
 </body>

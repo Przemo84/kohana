@@ -45,5 +45,12 @@ class Model_Comment extends Jelly_Model
             ->save();
     }
 
-
+    public function validateComment($arr)
+    {
+        return $validator = Validation::factory($arr)
+            ->rule('username','not_empty')
+            ->rule('username','regex', [':value', '/^[a-zA-Z\s]+$/' ])
+            ->rule('comment','not_empty')
+            ->rule('comment','regex', [':value', '/^[a-zA-Z\s]+$/' ]);
+    }
 }

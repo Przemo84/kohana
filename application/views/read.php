@@ -38,29 +38,38 @@
         </table>
         <hr/>
         <h3>Comment this article</h3>
-        <form method="POST" action="/index.php/articles/storeNewComment/<?php echo $article->id ?>">
-            <label>Username
-                <input type="text" name="username" required>
-            </label>
-            <br/>
-            <label>Your Comment
-                <input type="text" name="comment" required>
-            </label>
-            <br/>
-            <input type="submit" value="Comment!">
-        </form>
-        <div>
+        <div class="errors">
+            <?php if ($errors): ?>
+                <?php echo '<ul>' ?>
+                <?php foreach ($errors as $error): ?>
+                    <?php echo '<li style="color: darkred">' . $error . '</li>' ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+        <?php echo Form::open() ?>
+        <?php echo Form::label('username', 'Username') ?>
+        <?php echo Form::input('username', $validator['username']) ?>
+        <br/>
+        <?php echo Form::label('comment', 'Comment') ?>
+        <?php echo Form::input('comment', $validator['comment']) ?>
+        <br/>
+        <?php echo Form::submit('', 'Comment!') ?>
+        <?php echo Form::close() ?>
+        <div class="comments">
             <hr/>
             <table>
                 <tbody>
                 <?php foreach ($comments as $comment): ?>
                     <tr>
-                        <td><b><?php echo $comment['username'].'      '.$comment['created_on'] ?></b></td>
+                        <td><b><?php echo $comment['username'] . '      ' . $comment['created_on'] ?></b></td>
                     </tr>
                     <tr>
                         <td><?php echo $comment['comment'] ?></td>
                     </tr>
-                    <tr></tr><tr></tr><tr></tr><tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
                 <?php endforeach; ?>
                 </tbody>
             </table>
