@@ -7,21 +7,39 @@ class Controller_Api extends Controller
 
     public function before()
     {
+        parent::before();
         $this->id = $this->request->param('id');
-        $this->limit = $this->request->query('limit');
     }
-//    public function after()
-//    {
-//        $this->response->headers('Content-Type','application/json');
-//        parent::after();
-//    }
+
+    public function action_index()
+    {
+        $pagination = Pagination::factory([
+            'total_items' => 10,
+            'items_per_page' => 10
+        ])
+            ->route_params([
+                'directory' => Request::current()->directory(),
+                'controller' => Request::current()->controller(),
+                'action' => Request::current()->action(),
+            ]);
+
+        $articles = Jelly::query('article')
+            ->limit($pagination->items_per_page)
+            ->offset($pagination->offset)
+            ->select();
+
+        $articles = serialize($articles);
+
+        $this->response->body($articles);
+        $this->response->status(200);
+    }
 
     public function action_read()
     {
         $articleModel = new Model_Article();
         $article = $articleModel->show($this->id);
 
-        if (!$article) {
+        if ($article->id == null) {
             throw new HTTP_Exception_404();
         }
 
@@ -30,33 +48,49 @@ class Controller_Api extends Controller
         $body['content'] = $article->content;
 
         $this->response->body(json_encode($body));
+        $this->response->status(200);
     }
 
-    public function action_index()
+
+    public function action_delete()
     {
         $articleModel = new Model_Article();
-        $count = $articleModel->listAll()[1];
-        $articles = $articleModel->listAll()[0];
-
-//        var_dump($articles);die;
-
-//        $pagination = Pagination::factory([
-//            'total_items' => $count,
-//            'items_per_page' =>  10
-//        ])
-//            ->route_params([
-//                'directory' => Request::current()->directory(),
-//                'controller' => Request::current()->controller(),
-//                'action' => Request::current()->action(),
-//            ]);
-//
-//
-//        $articles = Jelly::query('article')
-//            ->limit($pagination->items_per_page)
-//            ->offset($pagination->offset)
-//            ->select();
-
-        $this->response->body(json_encode($articles));
+        $articleModel->erase($this->id);
     }
+
+
+    public function action_create()
+    {
+        if (HTTP_Request::POST) {
+            $articleModel = new Model_Article();
+            $bodyRequest = json_decode($this->request->body());
+
+            $articleModel->create($bodyRequest->title, $bodyRequest->content);
+
+            $this->response->status(201);
+        }
+
+    }
+
+    public function action_update()
+    {
+        if (HTTP_Request::PUT) {
+            $articleModel = new Model_Article();
+            $article = $articleModel->show($this->id);
+
+            if ($article->id == null) {
+                throw new HTTP_Exception_404();
+            }
+
+            $bodyRequest = json_decode($this->request->body());
+            $body['title'] = $bodyRequest->title;
+            $body['content'] = $bodyRequest->content;
+
+            $articleModel->update($this->id, $body['title'], $body['content']);
+
+            $this->response->status(200);
+        }
+    }
+
 
 }
