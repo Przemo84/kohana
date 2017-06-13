@@ -28,10 +28,29 @@ class Controller_Api extends Controller
             ->offset($pagination->offset)
             ->select();
 
-        $articles = serialize($articles);
+
+        $result = [];
+
+        foreach ($articles as $article) {
+            $result['items'][] = [
+                'id' => $article->id,
+                'content' => $article->content
+            ];
+        }
+
+        $result['meta'] = [
+            'items' => 2,
+            'page' => 2,
+            'count' => 20,
+        ];
+
+        $articles = json_encode($result);
 
         $this->response->body($articles);
         $this->response->status(200);
+        $this->response->headers([
+            'content-type' => 'application/json'
+        ]);
     }
 
     public function action_read()
@@ -69,7 +88,6 @@ class Controller_Api extends Controller
 
             $this->response->status(201);
         }
-
     }
 
     public function action_update()
@@ -83,14 +101,11 @@ class Controller_Api extends Controller
             }
 
             $bodyRequest = json_decode($this->request->body());
-            $body['title'] = $bodyRequest->title;
-            $body['content'] = $bodyRequest->content;
 
-            $articleModel->update($this->id, $body['title'], $body['content']);
+            $articleModel->update($this->id, $bodyRequest->title, $bodyRequest->content);
 
             $this->response->status(200);
         }
     }
-
 
 }
